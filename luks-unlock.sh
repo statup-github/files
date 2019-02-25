@@ -32,13 +32,13 @@ if [ "${DROPBEAR}" != "n" ] && [ -r "/etc/crypttab" ] ; then
             exit 0
         fi
         exit 1
-    EOF
+EOF
 
     cat <<-EOF > "${DESTDIR}/lib/unlock/plymouth"
         #!/bin/sh
         [ "\$1" == "--ping" ] && exit 1
         /bin/plymouth "\$@"
-    EOF
+EOF
 
     chmod 700 "${DESTDIR}/bin/unlock"
     chmod 700 "${DESTDIR}/lib/unlock/plymouth"
